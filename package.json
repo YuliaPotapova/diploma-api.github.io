@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/YuliaPotapova/diploma-api.github.io/issues"
   },
-  "homepage": "https://github.com/YuliaPotapova/diploma-api.github.io#readme"
+  "homepage": "https://github.com/YuliaPotapova/diploma-api.github.io#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "mongoose": "^5.9.20",
+    "validator": "^13.1.1"
+  }
 }
