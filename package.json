@@ -1,0 +1,20 @@
+{
+  "name": "diploma-api",
+  "version": "0.0.1",
+  "description": "Дипломный проект. Этап 2. Бэкенд",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YuliaPotapova/diploma-api.github.io.git"
+  },
+  "author": "YuliaPotapova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YuliaPotapova/diploma-api.github.io/issues"
+  },
+  "homepage": "https://github.com/YuliaPotapova/diploma-api.github.io#readme"
+}
