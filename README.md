@@ -1,1 +1,1 @@
-# diploma.github.io
+# diploma-api.github.io
