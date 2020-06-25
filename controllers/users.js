@@ -6,7 +6,7 @@ const User = require('../models/user');
 const ConflictError = require('../errors/conflictError');
 
 module.exports.getUser = (req, res, next) => {
-  User.find({})
+  User.find({ _id: req.user._id })
     .then((user) => res.send({ data: user }))
     .catch(next);
 };
