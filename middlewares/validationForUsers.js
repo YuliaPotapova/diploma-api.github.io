@@ -1,5 +1,4 @@
 const { celebrate, Joi } = require('celebrate');
-const validator = require('validator');
 
 const InvalidReqError = require('../errors/invalidReqError');
 
@@ -13,7 +12,7 @@ const name = Joi.string().trim().min(2).max(30)
 
 module.exports.validationForCreateUser = celebrate({
   body: Joi.object().keys({
-    email, password, name
+    email, password, name,
   }),
 });
 

@@ -9,9 +9,13 @@ module.exports.getArticles = (req, res, next) => {
 };
 
 module.exports.createArticle = (req, res, next) => {
-  const { keyword, title, text, date, source, link, image } = req.body;
-  Article.create({ keyword, title, text, date, source, link, image, owner: req.user._id })
-    .then((article) => res.send({ data: article }))
+  const {
+    keyword, title, text, date, source, link, image,
+  } = req.body;
+  Article.create({
+    keyword, title, text, date, source, link, image, owner: req.user._id,
+  })
+    .then((article) => res.status(201).send({ data: article.omitPrivate() }))
     .catch(next);
 };
 
@@ -28,4 +32,3 @@ module.exports.deleteArticle = (req, res, next) => {
     })
     .catch(next);
 };
-

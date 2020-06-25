@@ -40,7 +40,7 @@ const articleSchema = new mongoose.Schema({
   },
 });
 
-userSchema.methods.omitPrivate = function omitPrivate() {
+articleSchema.methods.omitPrivate = function omitPrivate() {
   const obj = this.toObject();
   delete obj.owner;
   return obj;
