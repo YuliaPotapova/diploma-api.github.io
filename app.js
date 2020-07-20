@@ -4,6 +4,7 @@ const helmet = require('helmet');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const limiter = require('./rateLimiter');
@@ -22,6 +23,10 @@ mongoose.connect(DATABASE_URL, {
 
 const app = express();
 
+app.use(cors({
+  origin: true,
+  credentials: true,
+}));
 app.use(helmet());
 app.use(limiter);
 

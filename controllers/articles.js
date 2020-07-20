@@ -4,7 +4,7 @@ const ForbiddenError = require('../errors/forbiddenError');
 
 module.exports.getArticles = (req, res, next) => {
   Article.find({ owner: req.user._id })
-    .then((articles) => res.send({ data: articles }))
+    .then((articles) => res.send(articles))
     .catch(next);
 };
 
@@ -15,7 +15,7 @@ module.exports.createArticle = (req, res, next) => {
   Article.create({
     keyword, title, text, date, source, link, image, owner: req.user._id,
   })
-    .then((article) => res.status(201).send({ data: article.omitPrivate() }))
+    .then((article) => res.status(201).send(article.omitPrivate()))
     .catch(next);
 };
 
@@ -25,7 +25,7 @@ module.exports.deleteArticle = (req, res, next) => {
     .orFail(() => new NotFoundError('Нет статьи с таким id'))
     .then((article) => {
       if (article.owner.id === req.user._id) {
-        Article.deleteOne(article).then(() => res.send({ data: article }));
+        Article.deleteOne(article).then(() => res.send(article.omitPrivate()));
       } else {
         throw new ForbiddenError('Нельзя удалить статью, сохранённую другим пользователем');
       }

@@ -6,8 +6,8 @@ const User = require('../models/user');
 const ConflictError = require('../errors/conflictError');
 
 module.exports.getUser = (req, res, next) => {
-  User.find({ _id: req.user._id })
-    .then((user) => res.send({ data: user }))
+  User.findOne({ _id: req.user._id })
+    .then((user) => res.send({ name: user.name, email: user.email }))
     .catch(next);
 };
 
@@ -37,4 +37,8 @@ module.exports.login = (req, res, next) => {
       res.cookie('jwt', token, { maxAge: 3600000 * 24 * 7, httpOnly: true }).end();
     })
     .catch(next);
+};
+
+module.exports.logout = (req, res) => {
+  res.clearCookie('jwt').end();
 };
